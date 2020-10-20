@@ -1,0 +1,52 @@
+Insert Account:
+  sf_object: Account
+  table: Account
+  fields:
+    Name: Name
+  record_type: HH_Account
+Insert Contact:
+  sf_object: Contact
+  table: Contact
+  fields:
+    FirstName: FirstName
+    LastName: LastName
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+Insert npe03__Recurring_Donation__c:
+  sf_object: npe03__Recurring_Donation__c
+  table: npe03__Recurring_Donation__c
+  fields:
+    - npe03__Date_Established__c
+    - Status__c
+    - PaymentMethod__c
+    - npe03__Schedule_Type__c
+    - RecurringType__c
+    - npe03__Installment_Period__c
+    - npe03__Installments__c
+    - npe03__Amount__c
+  lookups:
+    npe03__Contact__c:
+      table: Contact
+      key_field: npe03__Contact__c
+Insert Opportunity:
+  sf_object: Opportunity
+  table: Opportunity
+  fields:
+    Name: Name
+    AccountId: AccountId
+    CloseDate: CloseDate
+    StageName: StageName
+  lookups:
+    npe03__Recurring_Donation__c:
+      table: npe03__Recurring_Donation__c
+      key_field: npe03__Recurring_Donation__c
+Insert npe01__OppPayment__c:
+  sf_object: npe01__OppPayment__c
+  table: npe01__OppPayment__c
+  fields: {}
+  lookups:
+    npe01__Opportunity__c:
+      table: Opportunity
+      key_field: npe01__Opportunity__c
